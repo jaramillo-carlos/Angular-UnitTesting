@@ -1,3 +1,19 @@
+# Pruebas
+
+El repositorio contiene pruebas de los siguientes temas:
+
+- pruebas básicas de clases y funciones
+- pruebas con promesas (realizar prueba a `PruebaService` para garantizar cobertura)
+- solución a la actividad
+- pruebas a servicios que consumen http
+- escenario de componentes `MedicosService, CreacionComponent, MedicosComponent, ApiServiceMock`
+- pruebas a servicio `MedicosService`
+- pruebas a componente `CreacionComponent` (realizar pruebas faltantes a `PruebaService` para garantizar cobertura en exepciones)
+- pruebas a servicio con reject `PruebaService`
+- pruebas a componente `AppComponent` con dependencias
+- pruebas a componente `AppComponent, CreacionComponent` con elementos gráficos
+- pruebas con `FormBuilder`
+- pruebas con `EventEmitter`
 # AngularUnitTesting
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
