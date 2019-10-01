@@ -3,7 +3,7 @@
 El repositorio contiene pruebas de los siguientes temas:
 
 - pruebas básicas de clases y funciones
-- pruebas con promesas (realizar prueba a `PruebaService` para garantizar cobertura)
+- pruebas con promesas
 - solución a la actividad
 - pruebas a servicios que consumen http
 - escenario de componentes `MedicosService, CreacionComponent, MedicosComponent, ApiServiceMock`

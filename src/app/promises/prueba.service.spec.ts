@@ -45,4 +45,15 @@ describe('PruebaService', () => {
         });
       });
   });
+
+  it('debe obtener un valor', async () => {
+    // Arrange
+    const key = 'key3';
+    const value = 'value3';
+    sessionStorage.setItem(key, value);
+    // Act
+    const currentValue = await service.get(key);
+    // Assert
+    expect(currentValue).toEqual(value);
+  });
 });
