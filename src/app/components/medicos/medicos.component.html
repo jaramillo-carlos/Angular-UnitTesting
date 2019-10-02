@@ -1,0 +1,11 @@
+<app-creacion-medicos></app-creacion-medicos>
+<h2>Médicos Registrados</h2>
+<table>
+    <tr *ngFor="let medico of medicosSVC.medicos">
+        <td>{{medico.nombre}}</td>
+        <td>{{medico.titulo}}</td>
+        <td>
+            <button (click)="medicosSVC.eliminarMedico(medico)">Eliminar</button>
+        </td>
+    </tr>
+</table>

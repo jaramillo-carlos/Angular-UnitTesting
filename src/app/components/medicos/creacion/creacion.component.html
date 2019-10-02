@@ -1,0 +1,9 @@
+<h2>Creación de Médicos</h2>
+<form (ngSubmit)="agregarMedico()">
+    <input autocomplete="off" type="text" name="nombre" [(ngModel)]="medico.nombre">
+    <select name="titulo" [(ngModel)]="medico.titulo">
+        <option value="Médico General">Médico General</option>
+        <option value="Médico Cirujano">Médico Cirujano</option>
+    </select>
+    <button type="submit">Crear</button>
+</form>
