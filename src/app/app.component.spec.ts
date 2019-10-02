@@ -26,4 +26,15 @@ describe('AppComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('debe mostrar un titulo', () => {
+    // Arrange
+    component.title = 'Angular Unit Test';
+    const compiled = fixture.debugElement.nativeElement;
+    fixture.detectChanges();
+    // Act
+    // Assert
+    const title = compiled.querySelector('h1').textContent;
+    expect(title).toContain('Angular Unit Test');
+  });
 });

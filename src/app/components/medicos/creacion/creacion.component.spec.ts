@@ -52,4 +52,17 @@ describe('CreacionComponent', () => {
     expect(agregarMedicoSpy).toHaveBeenCalledWith(component.medico);
     expect(alertSpy).toHaveBeenCalledTimes(0);
   });
+
+  it('debe llamar la funcion agregarMedico cuando se presione agregar', () => {
+    // Arrange
+    component.medico.titulo = 'Título';
+    component.medico.nombre = 'Nombre';
+    const compiled = fixture.debugElement.nativeElement;
+    const agregarMedicoSpy = spyOn(component, 'agregarMedico');
+    fixture.detectChanges();
+    // Act
+    compiled.querySelector('button[type="submit"]').click();
+    // Assert
+    expect(agregarMedicoSpy).toHaveBeenCalled();
+  });
 });
