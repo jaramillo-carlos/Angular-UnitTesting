@@ -1,4 +1,5 @@
 # Pruebas
+`npx -p @angular/cli@7.3.9 ng new angularUnitTesting`
 
 El repositorio contiene pruebas de los siguientes temas:
 
