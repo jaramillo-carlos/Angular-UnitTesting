@@ -31,6 +31,7 @@ export class ApiServiceMock {
     const cache = sessionStorage.getItem('cached');
     if (cache) {
       this.medicos = JSON.parse(cache);
+      console.log(this.medicos.length + ' xd');
       this.id = this.medicos.length ? parseFloat(this.medicos[this.medicos.length - 1].id) : 0;
     }
   }

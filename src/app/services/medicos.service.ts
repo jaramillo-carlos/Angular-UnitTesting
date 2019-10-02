@@ -17,7 +17,6 @@ export class MedicosService {
     return this.api.agregarMedico(medico)
       .toPromise()
       .then(medicoCreado => {
-        console.log(this._medicos);
         this._medicos.push(medicoCreado);
       });
   }

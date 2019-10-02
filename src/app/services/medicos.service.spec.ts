@@ -20,6 +20,8 @@ describe('MedicosService', () => {
     titulo: 'Médico Cirujano'
   }];
 
+  const medicosMockEmpty: Medico[] = [];
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [{provide: ApiService, useClass: ApiServiceMock}]
@@ -30,6 +32,20 @@ describe('MedicosService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('debe retornar vacio cuando no hay medicos en el cache', async () => {
+    // Arrange
+    sessionStorage.clear();
+    spyOn(api, 'obtenerMedicos').and.returnValue(of(medicosMockEmpty));
+    // Act
+    // tslint:disable-next-line:no-string-literal
+    const medicosFromPromise = await service['obtenerMedicos']();
+    const medicos = service.medicos;
+    sessionStorage.setItem('cached', JSON.stringify(medicos));
+    // Assert
+    expect(medicosFromPromise).toEqual(medicosMockEmpty);
+    expect(medicos).toEqual(medicosMockEmpty);
   });
 
   it('debe almacenar los medicos consultados', async () => {
