@@ -22,8 +22,7 @@ describe('PruebaService', () => {
     // Act
     await service.save(key, value);
     // Assert
-    // expect(sessionStorage.getItem(key)).toEqual(value);
-    expect(await service.get(key)).toEqual(value);
+    expect(sessionStorage.getItem(key)).toEqual(value);
   });
 
   it('debe guardar un valor, usando callback', (done) => {
@@ -34,15 +33,9 @@ describe('PruebaService', () => {
     service.save(key, value)
       .then(() => {
         // Assert
-        /*
         const currentValue = sessionStorage.getItem(key);
         expect(currentValue).toEqual(value);
         done();
-        */
-        service.get(key).then((resolve) => {
-          expect(resolve).toEqual(value);
-          done();
-        });
       });
   });
 
@@ -55,5 +48,30 @@ describe('PruebaService', () => {
     const currentValue = await service.get(key);
     // Assert
     expect(currentValue).toEqual(value);
+  });
+
+  it('debe rechazar la promesa cuando ocurra una excepción', (done) => {
+    // Arrange
+    const key = 'key3';
+    spyOn(sessionStorage, 'getItem').and.throwError('key not found');
+    // Act
+    service.get(key).catch((err) => {
+      // Assert
+      expect(err).toEqual(new Error('key not found'));
+      done();
+    });
+  });
+
+  it('debe rechazar la promesa cuando ocurra una excepción guardando', (done) => {
+    // Arrange
+    const key = 'key4';
+    const value = 'value4';
+    spyOn(sessionStorage, 'setItem').and.throwError('storage is full');
+    // Act
+    service.save(key, value).catch((err) => {
+      // Assert
+      expect(err).toEqual(new Error('storage is full'));
+      done();
+    });
   });
 });
